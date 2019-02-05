@@ -4,16 +4,21 @@ import os
 
 def getTestFile():
     retLine=""
+#    print()
     with open("testfile.txt", "r") as f2:
         for line2 in f2.readlines():
+#            print (line2, end="")
             retLine += line2
+#        print()
+#        print ("retLine=", retLine, "\nline2=",line2)
     return retLine
 
 def printFeatureFile():
-    print ("\n\n  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~ ")
     with open("feature.txt", "r") as f3r:
         for lines in f3r.readlines():
             print(lines)
+
+
 
 def writeFeatureFile():
     print()
@@ -35,20 +40,24 @@ def writeFeatureFile():
             lines3len = len(lines3)
             for i in range(len(lines3)):
                 lineFinal = "" 
+                #print(lines3[i].strip() + " " + testcollist[i].strip())
+                #lineFinal =(lines3[i].strip() + " "+ testcollist[i].strip() + "\n")
                 lineFinal =(lines3[i].strip() + '{:>10}'.format(testcollist[i].strip()) + "\n")
-#                if len(lineFinal.strip()) > 2:
-#                    print("lineFinal=",lineFinal)
+                if len(lineFinal.strip()) > 2:
+                    print("lineFinal=",lineFinal)
                 with open("feature.txt", "a") as f3a:
                         f3a.write(lineFinal)
 
 
-print ("  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~ ")
 # main
+
 myfilename="housing.data.txt"
-#if os.path.isfile(myfilename):
-	#print("file exists")
-#else:
-	#print("no file")
+
+if os.path.isfile(myfilename):
+	print("file exists")
+else:
+	print("no file")
+print ("  #  #  #  #  #  #  #  #  #  #  #  #  #  #")
 open('feature.txt', 'w').close()
 with open(myfilename, 'r') as file_handle:
     for line in file_handle.readlines():

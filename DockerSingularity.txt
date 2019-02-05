@@ -1,0 +1,2 @@
+Docker is more popular than Singularity and is better suited for enterprises.
+Singularity was created for scientist and better suited for HPC.
